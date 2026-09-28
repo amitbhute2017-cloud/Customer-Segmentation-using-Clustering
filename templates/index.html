@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Segmentation System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            min-height: 100vh;
+            color: #fff;
+        }
+
+        /* ── NAVBAR ── */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 60px;
+            background: rgba(255,255,255,0.04);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, #a78bfa, #60a5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 0.3px;
+        }
+        .nav-badge {
+            background: rgba(167,139,250,0.15);
+            border: 1px solid rgba(167,139,250,0.3);
+            color: #a78bfa;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        /* ── HERO ── */
+        .hero {
+            text-align: center;
+            padding: 70px 20px 40px;
+        }
+        .hero-tag {
+            display: inline-block;
+            background: rgba(96,165,250,0.12);
+            border: 1px solid rgba(96,165,250,0.3);
+            color: #60a5fa;
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #fff 40%, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p {
+            color: rgba(255,255,255,0.55);
+            font-size: 1rem;
+            max-width: 560px;
+            margin: 0 auto 14px;
+            line-height: 1.6;
+        }
+
+        /* ── SEGMENTS CHIPS ── */
+        .segments-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin: 24px auto 0;
+            max-width: 700px;
+        }
+        .seg-chip {
+            padding: 7px 16px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 500;
+            border: 1px solid;
+            transition: transform 0.2s;
+        }
+        .seg-chip:hover { transform: translateY(-2px); }
+        .chip-loyal    { background: rgba(167,139,250,0.15); border-color: rgba(167,139,250,0.4); color: #a78bfa; }
+        .chip-budget   { background: rgba(52,211,153,0.12);  border-color: rgba(52,211,153,0.35); color: #34d399; }
+        .chip-occ      { background: rgba(251,191,36,0.12);  border-color: rgba(251,191,36,0.35); color: #fbbf24; }
+        .chip-high     { background: rgba(96,165,250,0.12);  border-color: rgba(96,165,250,0.35); color: #60a5fa; }
+        .chip-risk     { background: rgba(248,113,113,0.12); border-color: rgba(248,113,113,0.35); color: #f87171; }
+
+        /* ── MAIN CARD ── */
+        .container {
+            max-width: 860px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 40px;
+            backdrop-filter: blur(10px);
+        }
+
+        .upload-zone {
+            border: 2px dashed rgba(167,139,250,0.4);
+            border-radius: 14px;
+            padding: 42px 24px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            background: rgba(167,139,250,0.04);
+        }
+        .upload-zone:hover {
+            border-color: rgba(167,139,250,0.75);
+            background: rgba(167,139,250,0.08);
+        }
+        .upload-icon {
+            font-size: 2.8rem;
+            margin-bottom: 12px;
+        }
+        .upload-zone h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #e2e8f0;
+            margin-bottom: 6px;
+        }
+        .upload-zone p {
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.4);
+            margin-bottom: 20px;
+        }
+
+        .file-input-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+        .file-input-wrapper input[type="file"] {
+            position: absolute;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            top: 0; left: 0;
+        }
+        .choose-btn {
+            background: rgba(167,139,250,0.15);
+            border: 1px solid rgba(167,139,250,0.45);
+            color: #a78bfa;
+            padding: 10px 28px;
+            border-radius: 10px;
+            font-size: 0.88rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .choose-btn:hover {
+            background: rgba(167,139,250,0.28);
+        }
+
+        #file-name-display {
+            margin-top: 12px;
+            font-size: 0.82rem;
+            color: #60a5fa;
+            min-height: 20px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            margin-top: 22px;
+            padding: 14px;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #7c3aed, #3b82f6);
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s;
+            letter-spacing: 0.3px;
+        }
+        .submit-btn:hover {
+            opacity: 0.88;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 24px rgba(124,58,237,0.35);
+        }
+        .submit-btn:active { transform: translateY(0); }
+
+        /* ── RESULT ── */
+        .result-section { margin-top: 34px; }
+
+        .result-success {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(52,211,153,0.1);
+            border: 1px solid rgba(52,211,153,0.3);
+            border-radius: 12px;
+            padding: 14px 20px;
+            color: #34d399;
+            font-weight: 500;
+            font-size: 0.92rem;
+            margin-bottom: 24px;
+        }
+        .result-error {
+            background: rgba(248,113,113,0.1);
+            border: 1px solid rgba(248,113,113,0.3);
+            border-radius: 12px;
+            padding: 14px 20px;
+            color: #f87171;
+            font-size: 0.92rem;
+            margin-bottom: 24px;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        .table-wrapper table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.82rem;
+        }
+        .table-wrapper th {
+            background: rgba(167,139,250,0.12);
+            padding: 12px 16px;
+            text-align: left;
+            font-weight: 600;
+            color: #a78bfa;
+            white-space: nowrap;
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+        }
+        .table-wrapper td {
+            padding: 11px 16px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            color: rgba(255,255,255,0.75);
+            white-space: nowrap;
+        }
+        .table-wrapper tr:hover td {
+            background: rgba(255,255,255,0.04);
+        }
+
+        /* ── INFO CARDS ── */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-top: 40px;
+        }
+        .info-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 14px;
+            padding: 22px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .info-card:hover { transform: translateY(-3px); }
+        .info-card .ic-icon { font-size: 1.8rem; margin-bottom: 10px; }
+        .info-card h4 { font-size: 0.9rem; font-weight: 600; color: #e2e8f0; margin-bottom: 6px; }
+        .info-card p  { font-size: 0.78rem; color: rgba(255,255,255,0.45); line-height: 1.5; }
+
+        /* ── FOOTER ── */
+        footer {
+            text-align: center;
+            padding: 36px 20px;
+            color: rgba(255,255,255,0.3);
+            font-size: 0.8rem;
+            margin-top: 40px;
+        }
+        footer a {
+            color: #a78bfa;
+            text-decoration: none;
+        }
+        footer a:hover { text-decoration: underline; }
+
+        /* ── SAMPLE FILE HINT ── */
+        .sample-hint {
+            text-align: center;
+            margin-top: 12px;
+            font-size: 0.78rem;
+            color: rgba(255,255,255,0.35);
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">📊 CustomerIQ</div>
+    <div class="nav-badge">ML · K-Means · DBSCAN</div>
+</nav>
+
+<div class="hero">
+    <div class="hero-tag">🤖 Unsupervised Machine Learning</div>
+    <h1>Customer Segmentation<br>using Clustering</h1>
+    <p>Upload your customer data and instantly classify customers into intelligent segments to power smarter marketing decisions.</p>
+
+    <div class="segments-row">
+        <span class="seg-chip chip-loyal">⭐ Loyal Regular</span>
+        <span class="seg-chip chip-budget">💰 Budget Conscious</span>
+        <span class="seg-chip chip-occ">🛍️ Occasional Buyer</span>
+        <span class="seg-chip chip-high">💎 High Value</span>
+        <span class="seg-chip chip-risk">⚠️ At Risk</span>
+    </div>
+</div>
+
+<div class="container">
+    <div class="card">
+        <form method="POST" enctype="multipart/form-data" id="uploadForm">
+            <div class="upload-zone" id="dropZone">
+                <div class="upload-icon">📁</div>
+                <h3>Drop your file here</h3>
+                <p>Supports CSV and Excel (.xlsx) formats</p>
+                <div class="file-input-wrapper">
+                    <input type="file" name="file" accept=".csv,.xlsx" id="fileInput" required>
+                    <div class="choose-btn">Choose File</div>
+                </div>
+                <div id="file-name-display">No file selected</div>
+            </div>
+
+            <div class="sample-hint">💡 Use the sample file <strong>customer_segmentation_10_rows.csv</strong> to test</div>
+
+            <button type="submit" class="submit-btn" id="submitBtn">
+                🚀 Upload &amp; Predict Segments
+            </button>
+        </form>
+
+        {% if prediction %}
+        <div class="result-section">
+            {% if "Error" in prediction %}
+            <div class="result-error">❌ {{ prediction }}</div>
+            {% else %}
+            <div class="result-success">✅ {{ prediction }}</div>
+            {% endif %}
+
+            {% if table %}
+            <div class="table-wrapper">
+                {{ table | safe }}
+            </div>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- Info cards -->
+    <div class="info-grid">
+        <div class="info-card">
+            <div class="ic-icon">🧠</div>
+            <h4>K-Means Clustering</h4>
+            <p>Groups customers into 5 segments based on behavior patterns and spending habits.</p>
+        </div>
+        <div class="info-card">
+            <div class="ic-icon">🔬</div>
+            <h4>Smart Preprocessing</h4>
+            <p>Automated feature scaling and encoding pipeline for consistent predictions.</p>
+        </div>
+        <div class="info-card">
+            <div class="ic-icon">📈</div>
+            <h4>Actionable Insights</h4>
+            <p>Each segment reveals customer intent — enabling targeted marketing campaigns.</p>
+        </div>
+    </div>
+</div>
+
+<footer>
+    Built by <a href="https://www.linkedin.com/in/amit-bhute/" target="_blank">Amit Bhute</a> · B.Tech Computer Science ·
+    <a href="https://github.com/amitbhute2017-cloud" target="_blank">GitHub</a>
+</footer>
+
+<script>
+    const fileInput = document.getElementById('fileInput');
+    const display   = document.getElementById('file-name-display');
+    const submitBtn = document.getElementById('submitBtn');
+    const uploadZone = document.getElementById('dropZone');
+
+    fileInput.addEventListener('change', () => {
+        if (fileInput.files.length > 0) {
+            display.textContent = '📄 ' + fileInput.files[0].name;
+            uploadZone.style.borderColor = 'rgba(96,165,250,0.7)';
+        }
+    });
+
+    document.getElementById('uploadForm').addEventListener('submit', () => {
+        submitBtn.textContent = '⏳ Processing...';
+        submitBtn.disabled = true;
+    });
+
+    // Drag & drop highlight
+    uploadZone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        uploadZone.style.borderColor = 'rgba(167,139,250,0.9)';
+        uploadZone.style.background = 'rgba(167,139,250,0.12)';
+    });
+    uploadZone.addEventListener('dragleave', () => {
+        uploadZone.style.borderColor = 'rgba(167,139,250,0.4)';
+        uploadZone.style.background = 'rgba(167,139,250,0.04)';
+    });
+    uploadZone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        const file = e.dataTransfer.files[0];
+        if (file) {
+            fileInput.files = e.dataTransfer.files;
+            display.textContent = '📄 ' + file.name;
+        }
+        uploadZone.style.borderColor = 'rgba(96,165,250,0.7)';
+        uploadZone.style.background = 'rgba(167,139,250,0.04)';
+    });
+</script>
+
+</body>
+</html>

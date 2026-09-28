@@ -1,0 +1,11 @@
+age,gender,annual_income,monthly_income,city,membership_type,tenure_months,total_spend,average_order_value,purchase_frequency_monthly,total_orders,discount_usage_rate,coupon_usage_count,loyalty_points,loyalty_status,website_visits_monthly,app_usage_hours_weekly,email_open_rate,ad_click_rate,cart_abandonment_rate,return_rate,preferred_category,num_categories_purchased,device_type,payment_method,review_rating,complaint_level,customer_support_calls,marketing_channel,days_since_last_purchase
+42,Female,1083310,32637,Chennai,Gold,61,106243,628.66,8.31,169,0.28,48,12458,Silver,7,7.54,0.14,0.29,0.52,0.1,Fashion,6,Tablet,UPI,3.9,Medium,14,Google Ads,345
+51,Male,526648,108396,Delhi,Platinum,20,96268,471.9,2.47,204,0.58,18,16861,Silver,14,12.2,0.57,0.1,0.58,0.32,Fashion,7,Tablet,Debit Card,3.6,High,20,Referral,334
+51,Female,1232890,92851,Nagpur,Silver,25,170103,1181.27,9.94,144,0.71,48,15618,Silver,64,14.47,0.68,0.08,0.72,0.25,Electronics,1,Tablet,UPI,3.5,High,19,Google Ads,213
+60,Male,458522,82383,Nagpur,Gold,84,210328,1259.45,2.05,167,0.41,45,1648,Bronze,71,27.26,0.57,0.14,0.65,0.03,Fashion,4,Tablet,Net Banking,2.2,High,12,Organic Search,294
+35,Male,451061,115426,Chennai,Gold,108,140273,1039.06,7.75,135,0.47,32,6429,Platinum,8,9.51,0.47,0.3,0.3,0.08,Fashion,9,Desktop,Debit Card,4.6,Low,14,Organic Search,319
+30,Male,425737,96064,Pune,Silver,119,33523,147.68,3.12,227,0.59,36,985,Bronze,17,16.63,0.84,0.06,0.33,0.18,Home,6,Mobile,Debit Card,2.6,Medium,8,Email,57
+48,Male,1027000,29490,Chennai,Platinum,88,91417,305.74,6.77,299,0.73,4,18167,Silver,9,26.38,0.18,0.43,0.62,0.12,Grocery,6,Mobile,UPI,2.4,Low,3,Email,2
+28,Female,1103290,81123,Mumbai,Silver,63,241842,1645.18,1.65,147,0.83,10,7820,Gold,40,14.4,0.71,0.48,0.04,0.06,Home,1,Desktop,Debit Card,4.9,Low,20,Google Ads,181
+30,Male,733729,112867,Mumbai,Gold,114,299834,2360.9,3.95,127,0.55,1,19393,Gold,69,6.96,0.76,0.1,0.62,0.35,Grocery,8,Tablet,UPI,2.1,Medium,1,Organic Search,181
+18,Male,892846,50573,Nagpur,Gold,119,45609,340.37,5.85,134,0.17,23,10191,Silver,18,17.04,0.89,0.17,0.13,0.31,Fashion,5,Tablet,UPI,4.4,Medium,20,Referral,108

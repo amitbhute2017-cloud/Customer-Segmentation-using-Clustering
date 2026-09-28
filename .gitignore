@@ -1,0 +1,15 @@
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# IDE
+.idea/
+__pycache__/
+*.pyc
+
+# Large data files (not needed for deployment)
+customer_segmentation.csv
+
+# Environment
+.env
+venv/
+env/

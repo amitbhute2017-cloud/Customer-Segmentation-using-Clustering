@@ -1,0 +1,21 @@
+age,gender,annual_income,monthly_income,city,membership_type,tenure_months,total_spend,average_order_value,purchase_frequency_monthly,total_orders,discount_usage_rate,coupon_usage_count,loyalty_points,loyalty_status,website_visits_monthly,app_usage_hours_weekly,email_open_rate,ad_click_rate,cart_abandonment_rate,return_rate,preferred_category,num_categories_purchased,device_type,payment_method,review_rating,complaint_level,customer_support_calls,marketing_channel,days_since_last_purchase
+47,Male,856176,71348,Delhi,Gold,39,151365,1868.7,7.6,81,0.65,19,1511,Silver,44,7.4,0.8,0.18,0.05,0.13,Grocery,5,Mobile,UPI,4.0,High,6,Email,14
+42,Female,388860,32405,Delhi,Platinum,12,171322,2676.91,9.5,64,0.93,19,1863,Silver,63,19.5,0.75,0.15,0.3,0.22,Beauty,4,Desktop,UPI,4.2,Low,6,Referral,60
+31,Male,1202232,100186,Navi Mumbai,Gold,19,86947,924.97,11.9,94,0.24,10,4385,Platinum,51,15.7,0.54,0.44,0.24,0.03,Home,3,Tablet,Cash on Delivery,4.8,Medium,7,Referral,92
+22,Female,817068,68089,Mumbai,Silver,69,122434,2075.15,4.2,59,0.16,24,4876,Gold,59,10.1,0.23,0.24,0.26,0.14,Fashion,5,Desktop,Debit Card,3.6,High,12,Social Media,23
+58,Male,848088,70674,Navi Mumbai,Platinum,23,189813,1956.84,1.8,97,0.47,12,2857,Silver,30,10.0,0.7,0.03,0.35,0.25,Grocery,3,Desktop,Cash on Delivery,3.4,Low,2,Google Ads,100
+20,Female,1109484,92457,Bangalore,Platinum,20,79756,1627.67,4.1,49,0.75,20,2732,Silver,7,4.7,0.38,0.16,0.13,0.23,Fashion,5,Tablet,Cash on Delivery,3.0,Low,2,Social Media,66
+41,Male,717204,59767,Navi Mumbai,Gold,61,166994,6422.85,3.9,26,0.72,12,4267,Bronze,32,18.0,0.13,0.41,0.17,0.11,Grocery,4,Mobile,Debit Card,3.4,Medium,6,Referral,96
+23,Male,952560,79380,Mumbai,Platinum,36,144965,1610.72,9.0,90,0.03,1,1585,Bronze,15,3.7,0.14,0.49,0.32,0.08,Beauty,1,Mobile,Credit Card,4.9,Low,7,Referral,166
+53,Female,412968,34414,Pune,Gold,6,84748,1926.09,10.2,44,0.57,10,3714,Platinum,13,17.7,0.59,0.26,0.33,0.24,Electronics,2,Mobile,Net Banking,3.5,Medium,9,Google Ads,149
+51,Female,882936,73578,Nagpur,Silver,26,83212,1155.72,5.7,72,0.47,12,4678,Silver,5,0.6,0.21,0.37,0.6,0.08,Beauty,5,Tablet,Cash on Delivery,3.5,Medium,8,Google Ads,6
+22,Male,585132,48761,Navi Mumbai,Silver,29,128788,2220.48,11.1,58,0.02,3,1476,Platinum,38,12.2,0.44,0.4,0.7,0.35,Fashion,1,Mobile,Net Banking,3.9,Low,2,Referral,16
+24,Female,788124,65677,Navi Mumbai,Silver,52,166550,4626.39,8.0,36,0.05,6,1429,Silver,71,1.8,0.18,0.42,0.07,0.23,Grocery,4,Desktop,Credit Card,2.9,Low,11,Google Ads,83
+42,Male,858984,71582,Delhi,Gold,27,99392,1505.94,2.8,66,0.54,10,244,Gold,74,8.5,0.9,0.22,0.51,0.02,Beauty,1,Tablet,Debit Card,2.7,Low,2,Google Ads,23
+32,Female,1100016,91668,Bangalore,Gold,52,170883,2058.83,10.3,83,0.06,20,3978,Platinum,56,9.9,0.58,0.43,0.76,0.02,Grocery,5,Desktop,Debit Card,3.9,Low,7,Referral,114
+27,Male,816504,68042,Pune,Platinum,71,133474,1348.22,10.6,99,0.67,19,1664,Silver,62,1.4,0.18,0.02,0.77,0.27,Home,2,Desktop,Debit Card,4.1,High,10,Google Ads,75
+40,Female,637176,53098,Mumbai,Gold,33,97626,4881.3,11.9,20,0.45,13,4338,Silver,58,17.8,0.67,0.07,0.5,0.11,Grocery,2,Desktop,Net Banking,4.8,Medium,0,Google Ads,144
+53,Female,1213116,101093,Pune,Gold,37,97234,1620.57,11.3,60,0.86,15,4422,Bronze,33,16.4,0.63,0.2,0.65,0.11,Fashion,4,Tablet,Net Banking,4.7,Medium,6,Email,25
+33,Female,727200,60600,Nagpur,Gold,39,167899,8394.95,6.1,20,0.82,5,3298,Silver,22,3.7,0.61,0.18,0.57,0.36,Fashion,4,Mobile,Net Banking,4.0,High,3,Email,160
+57,Female,872232,72686,Pune,Gold,45,57804,9634.0,11.6,6,0.89,17,1294,Bronze,74,12.9,0.71,0.19,0.35,0.08,Beauty,3,Tablet,Debit Card,4.6,Low,8,Email,96
+40,Female,335640,27970,Navi Mumbai,Gold,42,76150,1136.57,2.9,67,0.82,20,4986,Platinum,37,14.7,0.85,0.25,0.33,0.24,Grocery,5,Tablet,Net Banking,4.8,Low,10,Referral,179
